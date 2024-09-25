@@ -21,12 +21,13 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	char *opcode;
 
+	/* Check for correct usage */
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
+	/* open file */
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
@@ -40,7 +41,9 @@ int main(int argc, char *argv[])
 		opcode = strtok(line, " \t\n");
 
 		if (opcode && opcode[0] != '#')
+		{
 			execute(opcode, &stack, line_number);
+		}
 	}
 
 	free(line);

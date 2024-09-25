@@ -24,6 +24,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	/* Convert the string argument to an integer */
 	num = atoi(arg);
 	if (num == 0 && strcmp(arg, "0") != 0)
 	{
@@ -44,7 +45,9 @@ void push(stack_t **stack, unsigned int line_number)
 
 	/* Adjust pointers if the stack is not empty */
 	if (*stack != NULL)
+	{
 		(*stack)->prev = new_node;
+	}
 
 	/* Set the new node as the head of the stack */
 	*stack = new_node;
