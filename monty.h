@@ -44,4 +44,5 @@ void pall(stack_t **stack, unsigned int line_number);
 int custom_getline(char **lineptr, size_t *n, FILE *stream);
 void free_stack(stack_t *stack);
 void execute(char *opcode, stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */
