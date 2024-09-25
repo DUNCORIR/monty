@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - Divides the second top element of the stack by the top element.
+ * div_op - Divides the second top element of the stack by the top element.
  * @stack: Double pointer to the head of the stack.
  * @line_number: Line number of the current
  * operation in the Monty bytecode file.
@@ -10,7 +10,7 @@
  * by the top element.
  * If there are less than two elements in the stack,
  * or if the top element is zero, an error message is printed, and the
- * program exits with EXIT_FAILURE. The result of the division replaces the 
+ * program exits with EXIT_FAILURE. The result of the division replaces the
  * second top element, and the top element is removed from the stack.
  */
 void div_op(stack_t **stack, unsigned int line_number)
@@ -32,7 +32,7 @@ void div_op(stack_t **stack, unsigned int line_number)
 	if (divisor == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
 	/* Perform the division and store the result in the second top element */
 	top->next->n = dividend / divisor; /*Store result in second top element*/
