@@ -15,18 +15,18 @@
  */
 void div_op(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
+	stack_t *tmp;
 	int divisor, dividend;
 
 	/* Check for at least two elements in the stack */
-	if (top == NULL || top->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);  /*Exit if not enough elements*/
 	}
-	/* Access the top two elements of the stack */
-	divisor = top->n;
-	dividend = top->next->n;
+	/* Access the top two elements */
+	divisor = (*stack)->n;
+	dividend = (*stack)->next->n;
 
 	/* check for zero division */
 	if (divisor == 0)
@@ -35,7 +35,9 @@ void div_op(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	/* Perform the division and store the result in the second top element */
-	top->next->n = dividend / divisor; /*Store result in second top element*/
-	*stack = top->next; /* move pointer to next element*/
-	free(top);
+	(*stack)->next->n = dividend / divisor;
+	/* Remove the top element */
+	tmp = *stack; /* Temporary pointer to the current top element */
+	*stack = (*stack)->next; /*Move pointer to the next element*/
+	free(tmp); /* Free the old top element */
 }
