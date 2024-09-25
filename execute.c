@@ -19,7 +19,8 @@ void execute(char *opcode, stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{NULL, NULL}
+		{"pop", pop},
+		{NULL, NULL} /* Sentinel value indicating the end of the array */
 	};
 	int i = 0;
 
@@ -35,6 +36,7 @@ void execute(char *opcode, stack_t **stack, unsigned int line_number)
 		}
 		i++;  /* Move to the next instruction */
 	}
+	/* If no match is found, print an error message and exit with failure */
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
 }
