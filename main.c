@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "monty.h"
-
-#define BUFFER_SIZE 1024
 
 /**
  * main - Entry point for the Monty bytecode interpreter program.
