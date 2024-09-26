@@ -25,7 +25,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	/* Access the values of the top two elements */
 	top_element = (*stack)->n;
 	second_top_element = (*stack)->next->n;
-	
+
 	/* perform modulus and store result in second element */
 	(*stack)->next->n = second_top_element % top_element;
 	/* Remove the top element from the stack */
