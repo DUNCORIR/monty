@@ -32,12 +32,14 @@ int main(int argc, char *argv[])
 
 	while (custom_getline(&line, &len, file) != -1)
 	{
-		line_number++;
+		/* Increment line number here for each read line */
+		line_number++; /* Tokenize the line */
 		opcode = strtok(line, " \t\n");
 
+		/* Only increment for valid opcodes (not comments or empty lines) */
 		if (opcode && opcode[0] != '#')
 		{
-			execute(opcode, &stack, line_number);
+			execute(opcode, &stack, line_number); /* Pass line number to execute */
 		}
 	}
 
