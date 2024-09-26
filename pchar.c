@@ -12,12 +12,14 @@
  */
 void pchar(stack_t **stack, unsigned int line_number)
 {
+	int value;
+
 	if (*stack == NULL) /* Check if the stack is empty */
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	int value = (*stack)->n; /* Get the value at the top of the stack */
+	value = (*stack)->n; /* Get the value at the top of the stack */
 	/* Check if the value is in the valid ASCII range */
 
 	if (value < 0 || value > 127)

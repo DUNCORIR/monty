@@ -32,11 +32,6 @@ void execute(char *opcode, stack_t **stack, unsigned int line_number)
 	};
 	int i = 0;
 
-	/* Ignore lines starting with '#' by treating them as comments */
-	if (opcode[0] == '#')
-	{
-		return; /* Do nothing for comment lines */
-	}
 	/* Loop through the available instructions until a match is found */
 	while (instructions[i].opcode)
 	{
