@@ -2,7 +2,11 @@
 #define MONTY_H
 
 #define BUFFER_SIZE 1024
+#define STACK_MODE 0
+#define QUEUE_MODE 1
 
+extern int mode;
+int mode;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -58,5 +62,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-
+void stack_op(stack_t **stack, unsigned int line_number);
+void queue_op(stack_t **stack, unsigned int line_number);
+int convert_to_int(char *arg, unsigned int line_number);
 #endif /* MONTY_H */

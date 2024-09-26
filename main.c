@@ -5,7 +5,7 @@
  * @argc: The argument count.
  * @argv: The argument vector containing the program name and file name.
  *
- * Return: EXIT_SUCCESS on success, or EXIT_FAILURE on failure.
+ * Return: EXIT_SUCCESS on success, or EXIT
  */
 int main(int argc, char *argv[])
 {
@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 	char *opcode;
+
+	mode = STACK_MODE; /* Initialize mode to STACK_MODE */
 
 	/* Check for correct usage */
 	if (argc != 2)

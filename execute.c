@@ -31,6 +31,8 @@ void execute(char *opcode, stack_t **stack, unsigned int line_number)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack_op},
+		{"queue", queue_op},
 		{NULL, NULL} /* Sentinel value indicating the end of the array */
 	};
 	int i = 0;

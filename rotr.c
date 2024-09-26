@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * rotr_op - Rotates the stack to the bottom
+ * rotr - Rotates the stack to the bottom
  * @stack: Double pointer to the head of the stack
  * @line_number: The line number (unused in this opcode)
  *
