@@ -1,9 +1,12 @@
 #include "monty.h"
 
 /**
- * pstr_op - Function prints a string starting at top of the stack.
+ * pstr - Function prints a string starting at top of the stack.
  * @stack: Double pointer to the top of stack to be modified.
  * @line_number: The line number of the current bytecode file.
+ *
+ * Description: The integer stored in each element of the stack is treated
+ * as the ascii value of the character to be printed
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
