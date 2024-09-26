@@ -15,8 +15,8 @@
  */
 void div_op(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
-	int top_element, second_top_element;
+	stack_t *top_element, *second_top_element;
+	int result;
 
 	/* Check for at least two elements in the stack */
 	if (*stack == NULL || (*stack)->next == NULL)
@@ -25,19 +25,21 @@ void div_op(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);  /*Exit if not enough elements*/
 	}
 	/* Access the top two elements */
-	top_element = (*stack)->n;
-	second_top_element = (*stack)->next->n;
+	top_element = *stack;
+	second_top_element = top_element->next; /* Pointer to the second top element */
 
 	/* check for zero division */
-	if (top_element == 0)
+	if (top_element->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	/* Perform the division and store the result in the second top element */
-	(*stack)->next->n = second_top_element / top_element;
+	result = second_top_element->n / top_element->n;
+	second_top_element->n = result;
+
 	/* Remove the top element */
-	tmp = *stack; /* Temporary pointer to the current top element */
-	*stack = (*stack)->next; /*Move pointer to the next element*/
-	free(tmp); /* Free the old top element */
+	top_element = top_element->next; /* Update the stack pointer to the next element */
+	free(*stack); /*Free the old top element*/
+	*stack = top_element;  /* Update the stack pointer */
 }
