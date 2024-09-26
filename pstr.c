@@ -5,7 +5,7 @@
  * @stack: Double pointer to the top of stack to be modified.
  * @line_number: The line number of the current bytecode file.
  */
-void pstr_op(stack_t **stack, unsigned int line_number)
+void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack; /* Start from the top of the stack */
 	(void) line_number;
