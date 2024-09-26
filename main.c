@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	/* open file */
+	/* open bytecode file */
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{

@@ -28,6 +28,7 @@ void execute(char *opcode, stack_t **stack, unsigned int line_number)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr_op", pstr_op},
 		{NULL, NULL} /* Sentinel value indicating the end of the array */
 	};
 	int i = 0;
